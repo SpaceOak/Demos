@@ -43,8 +43,8 @@ namespace gp {
 
 	private:
 		// Owner-side storage to guarantee dtor order: action dtor → Unregister → manager clean
-		std::vector<std::unique_ptr<EntityAction>> actionsOwner_{};
 		EntityActionManager actions_;
+		std::vector<std::unique_ptr<EntityAction>> actionsOwner_{};
 	};
 
 
