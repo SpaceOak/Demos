@@ -1,120 +1,41 @@
-\# Gameplay Action System (Demo)
+# Gameplay Action System (Demo)
 
-
-
-This project demonstrates a \*\*gameplay action architecture\*\*, built on top of an object manager and slot-based container.  
-
-The main goal is to show how game objects (Entities) can own and manage actions through a unified interface.
-
-
+This project demonstrates a **gameplay action architecture**, built on top of an object manager and slot-based container.  
+The goal is to show how game objects (Entities) can own and manage actions through a unified interface.
 
 ---
 
+## 📐 UML Diagram
 
-
-\## 📐 UML Diagram
-
-
-
-!\[UML Diagram](https://www.plantuml.com/plantuml/png/XLJDRXCn4BxxAKOzb4qWYNgDegW1fO14gO305JcxawofOwVsB11H3bouSaVY7Ie48X8\_l8BxHdZjZTXi8hXaFT\_CVDzdE-DZIznGiP2C14c4kto1IybNS3PzWIdrHYa9hM1aqboG1mg3aCmAALkCfP9R2q-afbE-dC0R1d1JA8k6aacx1NsunrKciOJHS8j9ZClCL6jPudEa6ZffbzXCc-V8qpmvKItsjfA9VhoGudCqbTXZd0jBQ9B9OQkCdohJG4wq6KUg4DxXKewaJ4wHSftTWcwtMvCOAnAqYjIZB8jR7qpYTvW4XXZOfBGRwoDI6JjiiiLiv7p85nWQBHcXvj6GketFX1LJYSb57y9IID\_ug42pgX\_L-3Mc1M7ICDmm49N-pVWIKz9cKEzk3sidlKGLqGfueDFpfKZFjy3xoYuzJuMn6-0-kQlhT-wx--g-k5\_kixjoFztw-WFRvxBJkHmshdIh3WQNdKxToMwouMgtODVXH-\_hX\_ljVxzvP-\_TsgshFZWuEe2sRog\_UmplbBMtozZsNaBDPZ0OKveGZ9Zd17hs5uTgG3fJRZ63L2lYGg7f-unl9pwL20PdQ52bQ0DwbXor80vPBmmLGvL1AT2KsRSBy8UIen5aOMRqed43GM0pKxPNABDP0myqmKBj7mKNXIT3-nyF3CAp0Zge0UNS9r-fEYjNcSTH65X4CpNAOxyi7wW\_)
-
-
+![UML Diagram](https://www.plantuml.com/plantuml/png/XLJDRXCn4BxxAKOzb4qWYNgDegW1fO14gO305JcxawofOwVsB11H3bouSaV7Y1e48X8_l8BxHdZjZTXi8hXaFT_CVDzdE-DZlznGiP2C14c4to1lybNS3PzWldrHYa9hM1aqboG1mg3aCmAALkcfP9R2q-afbEdC0R1d1JA8k6aax1NsunrKiOJHS8j9ZlCL6jPudEa6ZffbzXCc-V8qpmvKltjSfA9VhoGudCqbTXZd0jD89B9OQkCdohJ4qw6KUg4DxXKewaJ4wHSftTWcwtMvCOAnAqjYlZ8jR7qpVTwW4XxZOfBGRwoDl6JjiiLiv7p85nWQBHCXvj6GketFX1LJYsb57y9lID_ug42pgXL_l-3Mc1M7lCDmm49N-pVWlKz9cKEzk3sidlKLGJgfueDFfpFKZFjy3xoYuzJuMn6-0-kQlhT-wx--g-k5J_kixjoFZtw-WFRvxBJKhmshdln3WQNdKoTMvuoMgtODVXH-l_hX_lJvxzP-_LTsgshFZWuEe2sRogJ_UmplbBMtozSzNaBDPZ00KveGZG7d17hs5uTgG3fJR6Z3L2lyGG7f-unl9pwL20Pd052bQ0DwbXor80vPBmmLGvL1AT2KsRSBy8Uen5aOMRqe...longlink...)
 
 ---
 
+## ⚙️ Core Components
 
-
-\## ⚙️ Core Components
-
-
-
-\- \*\*Entity\*\*  
-
-&nbsp; Game object that owns a set of actions.  
-
-
-
-\- \*\*EntityAction\*\*  
-
-&nbsp; Base class for all actions. Provides:  
-
-&nbsp; - `Name()` — returns action name  
-
-&nbsp; - `CanBeVisible()` — determines whether the action is currently valid/visible  
-
-&nbsp; - `Execute()` — performs the action  
-
-
-
-\- \*\*EntityActionManager\*\*  
-
-&nbsp; Manages actions: registration, removal, visibility filtering.  
-
-&nbsp; Inherits from `ObjectManager<EntityAction>`.  
-
-
-
-\- \*\*ObjectManager<T>\*\*  
-
-&nbsp; Generic manager of objects with iteration and bulk method calls.  
-
-
-
-\- \*\*SlotMap<T>\*\*  
-
-&nbsp; Handle-based container:
-
-&nbsp; - Stable references  
-
-&nbsp; - O(1) insert/erase operations  
-
-
+- **Entity** – Game object that owns a set of actions  
+- **EntityAction** – Base class for all actions (name, visibility, execution)  
+- **EntityActionManager** – Manages registration and visibility of actions  
+- **ObjectManager<T>** – Generic manager with iteration & bulk calls  
+- **SlotMap<T>** – Handle-based container with stable references and O(1) insert/erase  
 
 ---
 
+## 🛠 Example Actions
 
-
-\## 🛠 Example Actions
-
-
-
-The project implements several example actions:  
-
-\- `OpenAction` — open an object  
-
-\- `LockpickAction` — lockpicking  
-
-\- `InspectAction` — inspect  
-
-
+- `OpenAction` — Open an object  
+- `LockpickAction` — Pick a lock  
+- `InspectAction` — Inspect an object  
 
 ---
 
+## ✅ Testing
 
-
-\## ✅ Testing
-
-
-
-Unit tests are provided with \*\*GoogleTest\*\*.  
-
-Examples can be found in `Bohemia\_Tests/EntityActionTests.cpp`.
-
-
+Unit tests are implemented with **GoogleTest** in `Bohemia_Tests/EntityActionTests.cpp`.
 
 ---
 
+## 🚀 Build & Run
 
-
-\## 🚀 Build \& Run
-
-
-
-1\. Clone the repository:
-
-&nbsp;  ```bash
-
-&nbsp;  git clone https://github.com/SpaceOak/Demos.git
-
-
-
+```bash
+git clone https://github.com/SpaceOak/Demos.git
