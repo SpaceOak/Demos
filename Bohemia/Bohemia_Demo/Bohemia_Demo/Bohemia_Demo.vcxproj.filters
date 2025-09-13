@@ -44,5 +44,8 @@
     <ClInclude Include="include\Actions\LockpickAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Actions\InspectAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
