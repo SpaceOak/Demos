@@ -1,3 +1,7 @@
+// ================================================
+// File: include/Core/SlotMap.h
+// ================================================
+
 #pragma once
 #include <cstdint>
 #include <vector>

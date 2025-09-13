@@ -1,3 +1,7 @@
+// ================================================
+// File: include/Core/EntityActionManager.h
+// ================================================
+
 #pragma once
 #include <vector>
 #include "Core/ObjectManager.h"

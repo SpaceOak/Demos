@@ -1,4 +1,8 @@
-﻿#pragma once
+﻿// ================================================
+// File: include/Core/Entity.h
+// ================================================
+
+#pragma once
 #include <vector>
 #include <memory>
 #include <type_traits>

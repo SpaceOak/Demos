@@ -1,3 +1,7 @@
+// ================================================
+// File: include/Core/ObjectManager.h
+// ================================================
+
 #pragma once
 #include <unordered_map>
 #include "Core/SlotMap.h"

@@ -1,3 +1,7 @@
+// ================================================
+// File: include/Core/EntityAction.h
+// ================================================
+
 #pragma once
 #include <string>
 #include "Core/Object.h"
