@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +129,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bohemia_Demo.cpp" />
+    <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\ObjectManager.cpp" />
+    <ClCompile Include="src\SlotMap.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Core\Object.h" />
+    <ClInclude Include="include\Core\ObjectManager.h" />
+    <ClInclude Include="include\Core\SlotMap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
