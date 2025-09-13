@@ -129,11 +129,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bohemia_Demo.cpp" />
+    <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="src\EntityAction.cpp" />
+    <ClCompile Include="src\EntityActionManager.cpp" />
     <ClCompile Include="src\Object.cpp" />
     <ClCompile Include="src\ObjectManager.cpp" />
     <ClCompile Include="src\SlotMap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Core\Entity.h" />
+    <ClInclude Include="include\Core\EntityAction.h" />
+    <ClInclude Include="include\Core\EntityActionManager.h" />
     <ClInclude Include="include\Core\Object.h" />
     <ClInclude Include="include\Core\ObjectManager.h" />
     <ClInclude Include="include\Core\SlotMap.h" />
