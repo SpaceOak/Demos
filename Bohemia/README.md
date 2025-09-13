@@ -1,41 +1,80 @@
-# Gameplay Action System (Demo)
+# 🎮 Gameplay Action System (Demo)
 
-This project demonstrates a **gameplay action architecture**, built on top of an object manager and slot-based container.  
-The goal is to show how game objects (Entities) can own and manage actions through a unified interface.
-
----
-
-## 📐 UML Diagram
-
-![UML Diagram](https:///www.plantuml.com/plantuml/dpng/XLJDRXCn4BxxAKOzb4qWhNgjegW1fO14gO305JdUITRKQwVsB11H3bouSaVY7Ie48X8_l8BxHdZNMxBPH739UhwP-RvlPpqvSiGj5RbY94aXtEKvpXLVmEda1GhQ7mgIHiFGYanI00gBa4mBfJgC2SMTWoVAq0cVZ-4D0xWfjKDBoRZRWKEuntMgi8JHSeT9ZClCn1XLuZEa1ZhkbjZKsEV8HPOSwmvxMyj4Fq58yndQMkmnpgGZjCbujrF6JxLj8SV6ZY9L5TxXIWsLIawGCfFUWhszlOR4I9EaHQGUfcbyzVuuFWT9nH03bmIxTNr4QcExRRQOZPmFUOvLeoChzImQqhVncNHoeZ0vFuJgA5LeV5IWNJH7DNgDeY1CMePR1gBIlnbVeY1Z-ytkxg0nwJdgYDR00oFEvbAShO7tjPi7dXfZDy1_yfTNx_nt_zL_yR_yPt_fV_hbrGUspMMlTp5eVTArEkXVz7fD9vl9bglDWas77uEl7_vt-FqMdBttIx-i-s3dO0UweQbyRZ6yKTPTBsEjwnbg_Yu6OzeGWfMpZC1CLpZK2zARS8Sf2AE9IutsC6H2E_692cquHOjQeAlGq-IW0t79zgkbOgXJA0NQCjlU0i9GChII74ojoTjVe1IutYctNsXxVGPUqKGBgni5vqKWG_SV3moglnKmbHfGnaFobMwoXZa47AM5F9fPKHw5Kv6hFm00)
+A compact, testable gameplay action architecture in C++ built around a generic object manager and a slot-based container.  
+Entities **own** actions; managers **register/filter** them; a custom **SlotMap** gives stable handles with O(1) insert/erase.
 
 ---
 
-## ⚙️ Core Components
+## 📊 UML Diagram
 
-- **Entity** – Game object that owns a set of actions  
-- **EntityAction** – Base class for all actions (name, visibility, execution)  
-- **EntityActionManager** – Manages registration and visibility of actions  
-- **ObjectManager<T>** – Generic manager with iteration & bulk calls  
-- **SlotMap<T>** – Handle-based container with stable references and O(1) insert/erase  
+![UML Diagram](./uml.png)
 
 ---
 
-## 🛠 Example Actions
+## 🧩 Components
 
-- `OpenAction` — Open an object  
-- `LockpickAction` — Pick a lock  
-- `InspectAction` — Inspect an object  
+- **Entity** — game object; owns `EntityActionManager` & the actions’ lifetime.
+- **EntityAction (abstract)** — interface for gameplay actions:
+  - `Name()` • `CanBeVisible(query)` • `Execute()`.
+- **EntityActionManager** — non-owning registry for actions:
+  - RAII `Register/Unregister` from action ctors/dtors,
+  - `Visible(query)` returns the filtered list,
+  - iteration & broadcast via `ForEach/CallAll`.
+- **ObjectManager<T>** — generic registry that backs concrete managers.
+- **SlotMap<T>** — handle-based storage (stable handles; O(1) insert/erase).
+- **Example actions** — `OpenAction`, `LockpickAction`, `InspectAction`.
 
 ---
 
-## ✅ Testing
+## 🧪 Tests
 
-Unit tests are implemented with **GoogleTest** in `Bohemia_Tests/EntityActionTests.cpp`.
+Unit tests (GoogleTest) cover:
+- Action lifecycle (register/unregister via RAII),
+- Visibility filtering,
+- SlotMap handle validity & reuse.
+
+Run from **Visual Studio Test Explorer** or:
+
+```bash
+ctest --output-on-failure
+```
 
 ---
 
-## 🚀 Build & Run
+## 📂 Layout
+
+```plaintext
+Bohemia_Demo/
+ ├─ include/Core/         # Entity, EntityAction, Manager, SlotMap, ...
+ ├─ include/Actions/      # OpenAction, LockpickAction, InspectAction
+ ├─ src/                  # Sources
+ └─ Bohemia_Demo.cpp      # Console demo
+
+Bohemia_Tests/            # GoogleTest project
+```
+
+---
+
+## ⚙️ Build
 
 ```bash
 git clone https://github.com/SpaceOak/Demos.git
+```
+
+1. Open **Bohemia_Demo.sln** in Visual Studio (x64 / Debug).  
+2. Build **Bohemia_Demo** and **Bohemia_Tests**.  
+3. Run the console demo or execute the tests.  
+
+---
+
+## 📌 Notes & Trade-offs
+
+- Managers store **non-owning pointers**; ownership stays in `Entity`.
+- **Not thread-safe** (kept minimal and cache-friendly).
+- **Destruction order** is intentional: actions (owned) are destroyed before their manager.
+
+---
+
+## 📝 License
+
+MIT — free to use and extend.
