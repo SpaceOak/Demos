@@ -131,6 +131,7 @@
     <ClCompile Include="Bohemia_Demo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Actions\InspectAction.h" />
     <ClInclude Include="include\Actions\LockpickAction.h" />
     <ClInclude Include="include\Actions\OpenAction.h" />
     <ClInclude Include="include\Core\Entity.h" />

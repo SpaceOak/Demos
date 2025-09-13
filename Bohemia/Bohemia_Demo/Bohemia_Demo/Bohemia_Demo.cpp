@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Core/Entity.h"
 #include "Actions/OpenAction.h"
+#include "Actions/InspectAction.h"
 #include "Actions/LockpickAction.h"
 
 using namespace gp;
@@ -19,23 +20,21 @@ int main()
 {
     Entity door;
 
-    // attach actions to the entity
-    door.AddAction<OpenAction>();
-    door.AddAction<LockpickAction>();
+    // Chest entity with Open + Lockpick + Inspect
+    Entity chest;
+    chest.AddAction<OpenAction>();
+    chest.AddAction<LockpickAction>();
+    chest.AddAction<InspectAction>();
 
-    // try different visibility states
-    VisibilityQuery q1{ false, false, true };   // locked, no key
-    VisibilityQuery q2{ true, false, false };   // closed, has key, unlocked
-    VisibilityQuery q3{ false, true, false };   // already open
+    // Chest scenarios (same flags, but includes Inspect always)
+    PrintVisible("CHEST: locked, no key", chest, { false, false, true });
+    PrintVisible("CHEST: closed + key", chest, { true, false, false });
+    PrintVisible("CHEST: already open", chest, { false, true, false });
 
-    PrintVisible("locked, no key", door, q1);
-    PrintVisible("closed + key", door, q2);
-    PrintVisible("already open", door, q3);
+    // Demo execute: run all visible actions for chest in "closed + key" state
+    auto vis = chest.Actions().Visible({ true, false, false });
+    for (auto* a : vis) a->Execute();
 
-    // demo execution of available actions
-    auto visible = door.Actions().Visible(q2);
-    for (auto* a : visible)
-        a->Execute();
 
     return 0;
 }
