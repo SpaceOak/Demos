@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +129,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bohemia_Demo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Actions\LockpickAction.h" />
+    <ClInclude Include="include\Actions\OpenAction.h" />
+    <ClInclude Include="include\Core\Entity.h" />
+    <ClInclude Include="include\Core\EntityAction.h" />
+    <ClInclude Include="include\Core\EntityActionManager.h" />
+    <ClInclude Include="include\Core\Object.h" />
+    <ClInclude Include="include\Core\ObjectManager.h" />
+    <ClInclude Include="include\Core\SlotMap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
