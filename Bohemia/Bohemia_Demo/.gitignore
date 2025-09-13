@@ -1,0 +1,55 @@
+# Visual Studio cache
+.vs/
+*.VC.db
+*.VC.opendb
+*.opendb
+
+
+# Build output dirs
+x64/
+x86/
+ARM*/
+Debug/
+Release/
+RelWithDebInfo/
+MinSizeRel/
+ipch/
+
+
+# Binaries & intermediates
+*.exe
+*.dll
+*.lib
+*.pdb
+*.idb
+*.iobj
+*.ipdb
+*.exp
+*.ilk
+*.obj
+*.o
+*.lo
+*.pch
+
+
+# Build logs
+*.tlog/
+*.log
+
+
+# Crash dumps
+*.dmp
+
+
+# User-specific project files (keep .vcxproj and .filters in repo)
+*.user
+*.suo
+*.sln.docstates
+
+
+# Common local build dirs
+build/
+out/
+bin/
+intermediate/
+
