@@ -24,6 +24,7 @@
     <ProjectGuid>{24985d69-b838-4a6a-a221-bd2928baa79d}</ProjectGuid>
     <RootNamespace>BohemiaDemo</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>ActionSystem_Demo</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,7 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bohemia_Demo.cpp" />
+    <ClCompile Include="ActionSystem_Demo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Actions\InspectAction.h" />

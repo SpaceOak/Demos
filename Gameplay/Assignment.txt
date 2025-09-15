@@ -1,0 +1,37 @@
+Gameplay Programmer Test
+"ObjectManager" V2
+
+1. Implement a generic ObjectManager:
+- it's owned by Entity
+- it can contain many Object's
+- Object's can be instantiated by other components on same Entity
+- Object automatically registers itself with ObjectManager
+- Object unregisters itself when removed or detached from hierarchy
+- manager can iterate through Object's and call custom functions in it
+
+2. Implement EntityAction and EntityActionManager
+- EntityAction inherits from Object
+- EntityAction has virtual method CanBeVisible
+- EntityActionManager inherits from ObjectManager
+- EntityActionManager allows to get all the actions that are visible
+
+3. Present system on minimum two Entities
+- Entities should provide different amount and set up of Actions
+- All entities should properly respond with list of Actions
+
+4. Write a report about implementation of feature
+- Include time spent on feature in total, and if possible partial (per task)
+- Include description of system in form of test or text and UML
+- Include description of limitations or encountered problems.
+
+Test needs to be realized using:
+- clean C++ - create simple component system, implement classes in C++, visualize using console
+
+Test will be evaluated as follows:
+- Ability to write C++ code, understanding of memory allocations and OOP
+- Ability to create custom system according to requirements
+- Understanding of Entity Component System, hierarchies and managers patterns
+- Ability to describe implementation and report about done work
+
+- Bonus: Creating own container for Object's in ObjectManager
+- Bonus: Writing own entity-component system
