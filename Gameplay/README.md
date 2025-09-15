@@ -44,13 +44,13 @@ ctest --output-on-failure
 ## 📂 Layout
 
 ```plaintext
-Bohemia_Demo/
+ActionSystem_Demo/
  ├─ include/Core/         # Entity, EntityAction, Manager, SlotMap, ...
  ├─ include/Actions/      # OpenAction, LockpickAction, InspectAction
  ├─ src/                  # Sources
- └─ Bohemia_Demo.cpp      # Console demo
+ └─ ActionSystem_Demo.cpp      # Console demo
 
-Bohemia_Tests/            # GoogleTest project
+ActionSystem_Tests/            # GoogleTest project
 ```
 
 ---
@@ -61,8 +61,8 @@ Bohemia_Tests/            # GoogleTest project
 git clone https://github.com/SpaceOak/Demos.git
 ```
 
-1. Open **Bohemia_Demo.sln** in Visual Studio (x64 / Debug).  
-2. Build **Bohemia_Demo** and **Bohemia_Tests**.  
+1. Open **ActionSystem_Demo.sln** in Visual Studio (x64 / Debug).  
+2. Build **ActionSystem_Demo** and **ActionSystem_Tests**.  
 3. Run the console demo or execute the tests.  
 
 ---
