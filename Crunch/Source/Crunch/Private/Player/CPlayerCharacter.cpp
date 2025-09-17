@@ -10,7 +10,7 @@
 #include "GameFramework/PlayerController.h"
 
 ACPlayerCharacter::ACPlayerCharacter()
-{
+{	
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>("Camera Boom");
 	CameraBoom->SetupAttachment(GetRootComponent());
 	CameraBoom->bUsePawnControlRotation = true;
@@ -62,8 +62,8 @@ void ACPlayerCharacter::HandleMoveInput(const FInputActionValue& InputActionValu
 {
 	FVector2D InputVal = InputActionValue.Get<FVector2D>();
 	InputVal.Normalize();
-
-	AddMovementInput(GetMoveFwdDir() * InputVal.Y + GetLookRightDir() * InputVal.X);
+	
+	AddMovementInput(GetMoveFwdDir()*InputVal.Y + GetLookRightDir() * InputVal.X);
 }
 
 FVector ACPlayerCharacter::GetLookRightDir() const
