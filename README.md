@@ -9,8 +9,6 @@ Each subfolder is a self-contained example that explores a specific gameplay or 
 
 - **Gameplay/** — action system in pure C++ (entities, managers, actions).
 - **Crunch/** — second test assignment (character controller & interaction prototype).
-- **Unreal/** — experiments and utility tools in Unreal Engine (WIP).
-- **Unity/** — gameplay mechanics sandbox (WIP).
 
 ---
 
