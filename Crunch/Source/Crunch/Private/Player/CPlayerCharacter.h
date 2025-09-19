@@ -8,7 +8,7 @@
 #include "CPlayerCharacter.generated.h"
 
 /**
- *
+ * 
  */
 UCLASS()
 class ACPlayerCharacter : public ACCharacter
@@ -27,7 +27,7 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	class UInputAction* JumpInputAction;
-
+	
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	class UInputAction* LookInputAction;
 
