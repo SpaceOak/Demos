@@ -13,37 +13,27 @@
  	GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
  	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
 /**
- *
+ * 
  */
 UCLASS()
 class UCAttributeSet : public UAttributeSet
 {
 	GENERATED_BODY()
 public:
-	ATTRIBUTE_ACCESSORS(UCAttributeSet, Health)
-		ATTRIBUTE_ACCESSORS(UCAttributeSet, MaxHealth)
-		ATTRIBUTE_ACCESSORS(UCAttributeSet, Mana)
-		ATTRIBUTE_ACCESSORS(UCAttributeSet, MaxMana)
-		virtual void GetLifetimeReplicatedProps(TArray< class FLifetimeProperty >& OutLifetimeProps) const override;
+    ATTRIBUTE_ACCESSORS(UCAttributeSet, Health)
+    ATTRIBUTE_ACCESSORS(UCAttributeSet, MaxHealth)
+    ATTRIBUTE_ACCESSORS(UCAttributeSet, Mana)
+    ATTRIBUTE_ACCESSORS(UCAttributeSet, MaxMana)
 private:
-	UPROPERTY(ReplicatedUsing = OnRep_Health)
+	UPROPERTY()
 	FGameplayAttributeData Health;
 
-	UPROPERTY(ReplicatedUsing = OnRep_MaxHealth)
+	UPROPERTY()
 	FGameplayAttributeData MaxHealth;
 
-	UPROPERTY(ReplicatedUsing = OnRep_Mana)
+	UPROPERTY()
 	FGameplayAttributeData Mana;
-
-	UPROPERTY(ReplicatedUsing = OnRep_MaxMana)
+	
+	UPROPERTY()
 	FGameplayAttributeData MaxMana;
-
-	UFUNCTION()
-	void OnRep_Health(const FGameplayAttributeData& OldValue);
-	UFUNCTION()
-	void OnRep_MaxHealth(const FGameplayAttributeData& OldValue);
-	UFUNCTION()
-	void OnRep_Mana(const FGameplayAttributeData& OldValue);
-	UFUNCTION()
-	void OnRep_MaxMana(const FGameplayAttributeData& OldValue);
 };

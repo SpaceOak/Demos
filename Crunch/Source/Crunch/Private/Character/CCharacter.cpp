@@ -8,7 +8,7 @@
 // Sets default values
 ACCharacter::ACCharacter()
 {
-	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+ 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	GetMesh()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
@@ -16,22 +16,11 @@ ACCharacter::ACCharacter()
 	CAttributeSet = CreateDefaultSubobject<UCAttributeSet>("CAttribute Set");
 }
 
-void ACCharacter::ServerSideInit()
-{
-	CAbilitySystemComponent->InitAbilityActorInfo(this, this);
-	CAbilitySystemComponent->ApplyInitialEffects();
-}
-
-void ACCharacter::ClientSideInit()
-{
-	CAbilitySystemComponent->InitAbilityActorInfo(this, this);
-}
-
 // Called when the game starts or when spawned
 void ACCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 }
 
 // Called every frame
